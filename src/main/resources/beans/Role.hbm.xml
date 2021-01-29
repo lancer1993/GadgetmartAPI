@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2020 12:16:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Role" table="role" catalog="gadgetmart" optimistic-lock="version">
+        <id name="idrole" type="java.lang.Integer">
+            <column name="idrole" />
+            <generator class="identity" />
+        </id>
+        <property name="role" type="string">
+            <column name="role" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

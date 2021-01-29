@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2020 12:16:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.OrderDetails" table="order_details" catalog="gadgetmart" optimistic-lock="version">
+        <id name="idorderDetails" type="java.lang.Integer">
+            <column name="idorder_details" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orders" class="beans.Orders" fetch="select">
+            <column name="idorder" not-null="true" />
+        </many-to-one>
+        <property name="productCode" type="string">
+            <column name="product_code" length="65535" not-null="true" />
+        </property>
+        <property name="productImage" type="string">
+            <column name="product_image" length="65535" not-null="true" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+        <property name="itemTotal" type="big_decimal">
+            <column name="item_total" precision="12" not-null="true" />
+        </property>
+        <property name="productWarrentyPeriod" type="string">
+            <column name="product_warrenty_period" length="65535" not-null="true" />
+        </property>
+        <property name="deliveryPeriod" type="string">
+            <column name="delivery_period" length="65535" not-null="true" />
+        </property>
+        <property name="lastUpdatedDateTime" type="timestamp">
+            <column name="last_updated_date_time" length="0" not-null="true" />
+        </property>
+        <property name="createdDateTime" type="timestamp">
+            <column name="created_date_time" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

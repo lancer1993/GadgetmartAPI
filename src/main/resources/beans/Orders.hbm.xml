@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2020 12:16:54 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Orders" table="orders" catalog="gadgetmart" optimistic-lock="version">
+        <id name="idorder" type="java.lang.Integer">
+            <column name="idorder" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="retailers" class="beans.Retailers" fetch="select">
+            <column name="idretailer" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="beans.User" fetch="select">
+            <column name="iduser" not-null="true" />
+        </many-to-one>
+        <property name="orderDate" type="timestamp">
+            <column name="order_date" length="0" not-null="true" />
+        </property>
+        <property name="orderAmount" type="big_decimal">
+            <column name="order_amount" precision="12" not-null="true" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="dateCreated" length="0" not-null="true" />
+        </property>
+        <property name="lastUpdated" type="timestamp">
+            <column name="lastUpdated" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
